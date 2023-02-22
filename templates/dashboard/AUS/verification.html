@@ -1,0 +1,411 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Blue | Dashboard</title>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <link rel="icon" href="../../wp-content/uploads/2021/07/bp-favicon.png" sizes="32x32" />
+  <link rel="icon" href="../../wp-content/uploads/2021/07/bp-favicon.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="../../wp-content/uploads/2021/07/bp-favicon.png" />
+  <!-- Bootstrap 3.3.2 -->
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome Icons -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+    type="text/css" />
+  <!-- Ionicons -->
+  <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+  <!-- Theme style -->
+  <link href="../dist/css/BlueInc.min.css" rel="stylesheet" type="text/css" />
+  <!-- Blue Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+  <link href="../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+  <style>
+    .pop-up {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    /* .pop-up-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      border: 1px solid black;
+      padding: 20px;
+      width: 30%;
+      height: 30%;
+      margin: auto;
+      } */
+
+    .pop-up-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      padding: 50px;
+      border-radius: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 2px 2px 8px #888888;
+      width: 50%;
+      height: 50%;
+      margin: auto;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="skin-blue">
+  <div class="wrapper">
+
+    <header class="main-header" style="position: fixed; width: 100%;">
+      <!-- Logo -->
+      <a href="index.html" class="logo"><img src="blueprint-white-logo.png" alt="Here" height="35px" width="35px">
+        Blue</a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- Messages: style can be found in dropdown.less-->
+            <li class="dropdown messages-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-envelope-o"></i>
+                <span class="label label-success">4</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="header">You have 4 messages</li>
+                <li>
+                  <!-- inner menu: contains the actual data -->
+                  <ul class="menu">
+                    <li><!-- start message -->
+                      <a href="#">
+                        <div class="pull-left">
+                          <img src="blueprint-white-logo.png" class="img-circle" alt="User Image" />
+                        </div>
+                        <h4>
+                          Support Team
+
+                        </h4>
+                        <p>Hello,start verification process to finish application</p>
+                      </a>
+                    </li><!-- end message -->
+                    <li>
+                      <a href="#">
+                        <div class="pull-left">
+                          <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="user image" />
+                        </div>
+                        <h4>
+                          Roles are available on request as well.
+                          <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                        </h4>
+
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <div class="pull-left">
+                          <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="user image" />
+                        </div>
+                        <h4>
+                          For Employees,Use the verified employees.
+                          <small><i class="fa fa-clock-o"></i> Today</small>
+                        </h4>
+
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <div class="pull-left">
+                          <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="user image" />
+                        </div>
+                        <h4>
+                          Send us an email at application@bluerecruits.co
+
+                        </h4>
+                        <p></p>
+                      </a>
+                    </li>
+
+                  </ul>
+                </li>
+                <li class="footer"><a href="#">See All Messages</a></li>
+              </ul>
+            </li>
+            <!-- Notifications: style can be found in dropdown.less -->
+            <li class="dropdown notifications-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bell-o"></i>
+                <span class="label label-warning">2</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="header">You have 2 notifications</li>
+                <li>
+                  <!-- inner menu: contains the actual data -->
+                  <ul class="menu">
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-users text-aqua"></i> New members joined today
+                      </a>
+                    </li>
+
+
+
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-shopping-cart text-green"></i> New Jobs updated
+                      </a>
+                    </li>
+
+                  </ul>
+                </li>
+                <li class="footer"><a href="#">View all</a></li>
+              </ul>
+            </li>
+            <!-- Tasks: style can be found in dropdown.less -->
+            <li class="dropdown tasks-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-flag-o"></i>
+                <span class="label label-danger">5</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="header">You have 5 tasks</li>
+                <li>
+                  <!-- inner menu: contains the actual data -->
+                  <ul class="menu">
+                    <li><!-- Task item -->
+                      <a href="#">
+                        <h3>
+                          Start Application process by selecting a role and reaching out to application@bluerecruits.co
+                          with desired role.
+                          <small class="pull-right">20%</small>
+                        </h3>
+                        <div class="progress xs">
+                          <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                            <span class="sr-only">20% Complete</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li><!-- end task item -->
+                    <li><!-- Task item -->
+                      <a href="#">
+                        <h3>
+                          Fill in the personal information tab
+                          <small class="pull-right">40%</small>
+                        </h3>
+                        <div class="progress xs">
+                          <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                            <span class="sr-only">40% Complete</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li><!-- end task item -->
+                    <li><!-- Task item -->
+                      <a href="#">
+                        <h3>
+                          Start verification .
+                          <small class="pull-right">60%</small>
+                        </h3>
+                        <div class="progress xs">
+                          <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                            <span class="sr-only">60% Complete</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li><!-- end task item -->
+                    <li><!-- Task item -->
+                      <a href="#">
+                        <h3>
+                          Interview session schedule.
+                          <small class="pull-right">80%</small>
+                        </h3>
+                        <div class="progress xs">
+                          <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                            <span class="sr-only">80% Complete</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li><!-- end task item -->
+
+                    <li><!-- Task item -->
+                      <a href="#">
+                        <h3>
+                          Resolution,Benefits and Congratulations! <small class="pull-right">100%</small>
+                        </h3>
+                        <div class="progress xs">
+                          <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                            <span class="sr-only">100% Complete</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li><!-- end task item -->
+                  </ul>
+                </li>
+                <li class="footer">
+                  <a href="#">View all tasks</a>
+                </li>
+              </ul>
+            </li>
+            <!-- User Account: style can be found in dropdown.less -->
+
+            <li class="user-footer">
+              <div class="pull-left">
+                <a href="#" class="btn btn-default btn-flat">Profile</a>
+              </div>
+              <div class="pull-right">
+                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+              </div>
+            </li>
+          </ul>
+          </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar" style="position: fixed;">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="blueprint-white-logo.png" class="img-circle" alt="User Image" />
+          </div>
+          <div class="pull-left info">
+
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
+        </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search..." />
+            <span class="input-group-btn">
+              <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i
+                  class="fa fa-search"></i></button>
+            </span>
+          </div>
+        </form>
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+          <li class="header">MAIN NAVIGATION</li>
+          <li class="active treeview">
+            <a href="#">
+              <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="personal.html"><i class="fa fa-circle-o"></i> Personal Info</a></li>
+              <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Verification Dashboard</a></li>
+              <li>
+                <a href="../login.html">
+                  <i class="fa fa-share"></i> <span>Logout</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Verification
+          <small>Preview</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Verification Dashboard</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- Verification -->
+            <div class="box box-primary">
+              <div class="box-header">
+                <h3 class="box-title">Click <a href="pop6.html" target="_blank">HERE</a> to Verify your details</h3>
+              </div><!-- /.box-header -->
+              <div class="pop-up">
+                <div class="pop-up-content">
+                  <span class="close-btn">&times;</span>
+                  <i class="fa fa-check-circle fa-5x" style="color: green;"></i>
+                  <h2>Verification Pending</h2>
+                  <p>This might take up to 72 hours please check your email for confirmation</p>
+                  <button class="order-btn"><a href="" style="text-decoration: none; color: black;">Start
+                      Verification</a></button>
+                </div>
+              </div>
+            </div><!-- /.box -->
+          </div> <!-- /.row -->
+      </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2023 <a href="#">Blue</a>.</strong> All rights reserved.
+    </footer>
+  </div><!-- ./wrapper -->
+
+  <!-- jQuery 2.1.3 -->
+  <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script>
+  <!-- Bootstrap 3.3.2 JS -->
+  <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+  <!-- FastClick -->
+  <script src='../plugins/fastclick/fastclick.min.js'></script>
+  <!-- Blue App -->
+  <script src="../dist/js/app.min.js" type="text/javascript"></script>
+  <script>
+    document.getElementById("nextBtn").addEventListener("click", function (event) {
+      event.preventDefault();
+      document.getElementById("step1").style.display = "none";
+      document.getElementById("step2").style.display = "block";
+    });
+  </script>
+  <script>
+    document.getElementById("login-btn").addEventListener("click", function (event) {
+      event.preventDefault();
+      document.querySelector(".pop-up").style.display = "flex";
+    });
+
+    document.querySelector(".close-btn").addEventListener("click", function () {
+      document.querySelector(".pop-up").style.display = "none";
+    });
+  </script>
+</body>
+
+</html>

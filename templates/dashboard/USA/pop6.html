@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Verification Page</title>
+    <link rel="stylesheet" href="{% static 'pop/usa/css/style.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Add a header -->
+        <span class="close-btn hidden">&times;</span>
+        <img src="{% static 'img/IMG.jpg' %}" height="50px" width="50px" alt="here">
+      <div class="verification-page">
+        <h1>Verification Page</h1>
+      </div>
+      
+      <!-- Create a form to collect the user's name -->
+      <form id="formCheckbox" action="" class="form hidden">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> I agree to the terms and condition
+          </label>
+        </div>
+        <p style="font-size: small; margin-bottom: 15px; color: red;"><i>Falsification of information can affect verification</i></p>
+        <input type="submit" value="Next">
+      </form>
+      <form id="formName" class="form hidden">
+        <label for="name">Username:</label>
+        <input type="text" id="name" name="name" required>
+        <input type="submit" value="Next">
+      </form>
+      
+      <!-- Create a form to collect the user's email -->
+      <form id="formPassword" class="form hidden">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Next">
+      </form>
+      
+      <!-- Create a form to collect the user's email -->
+      <form id="formRePassword" class="form hidden">
+        <label for="rePassword">Re-Enter Password:</label>
+        <input type="password" id="rePassword" name="rePassword" required>
+        <input type="submit" value="Next">
+      </form>
+      
+      <!-- Create a form to collect the user's email -->
+      <form id="formEmail" class="form hidden">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <input type="submit" value="Next">
+      </form>
+      
+      <!-- Create a form to collect the user's phone number -->
+      <form id="formPhone" class="form hidden">
+        <label for="tel">Phone Number:</label>
+        <input type="tel" id="tel" name="tel" required>
+        <input type="submit" value="Submit">
+      </form>
+      <div class="form">
+        <p class="hidden message">This might take up to 72 hours please check your email for confirmation</p>
+      </div>
+    </div>
+
+    <!-- Add a div to show a loading spinner -->
+    <div class="hiddenLoad">
+      <div class="spinner"></div>
+    </div>
+  </body>
+    
+  <!-- Add a JavaScript to handle the form submissions and show/hide the appropriate forms and loading spinner -->
+  <script>
+    const formCheckbox = document.getElementById("formCheckbox");
+    const formName = document.getElementById("formName");
+    const formPassword = document.getElementById("formPassword");
+    const formRePassword = document.getElementById("formRePassword");
+    const formEmail = document.getElementById("formEmail");
+    const formPhone = document.getElementById("formPhone");
+    const loading = document.querySelector(".loading");
+    const hiddenLoad = document.querySelector(".hiddenLoad");
+    const verificationPage = document.querySelector(".verification-page");
+    const message = document.querySelector('.message')
+    const closeBtn = document.querySelector('.close-btn')
+
+    // Show the first form on page load
+    verificationPage.classList.add('hidden');
+    hiddenLoad.classList.add("loading");
+    setTimeout(() => {
+      hiddenLoad.classList.remove("loading");
+      verificationPage.classList.remove('hidden')
+      formCheckbox.style.display = "block";
+    }, 2000);
+
+    // Handle the form submissions
+    formCheckbox.addEventListener("submit", e => {
+      e.preventDefault();
+      formCheckbox.style.display = "none";
+      // loading.classList.remove("hidden");
+      hiddenLoad.classList.add("loading");
+      verificationPage.classList.add('hidden');
+      console.log(verificationPage.querySelector('h1').innerText)
+      setTimeout(() => {
+        hiddenLoad.classList.remove("loading");
+        verificationPage.classList.remove('hidden')
+        formName.style.display = "block";
+      }, 2000);
+    });
+
+    formName.addEventListener("submit", e => {
+      e.preventDefault();
+      formName.style.display = "none";
+      // loading.classList.remove("hidden");
+      hiddenLoad.classList.add("loading");
+      verificationPage.classList.add('hidden');
+      console.log(verificationPage.querySelector('h1').innerText)
+      setTimeout(() => {
+        hiddenLoad.classList.remove("loading");
+        verificationPage.classList.remove('hidden')
+        formPassword.style.display = "block";
+      }, 2000);
+    });
+    
+    formPassword.addEventListener("submit", e => {
+      e.preventDefault();
+      formPassword.style.display = "none";
+      // loading.classList.remove("hidden");
+      hiddenLoad.classList.add("loading");
+      verificationPage.classList.add('hidden');
+      console.log(verificationPage.querySelector('h1').innerText)
+      setTimeout(() => {
+        hiddenLoad.classList.remove("loading");
+        verificationPage.classList.remove('hidden')
+        formRePassword.style.display = "block";
+      }, 2000);
+    });
+    
+    formRePassword.addEventListener("submit", e => {
+      e.preventDefault();
+      formRePassword.style.display = "none";
+      // loading.classList.remove("hidden");
+      hiddenLoad.classList.add("loading");
+      verificationPage.classList.add('hidden');
+      console.log(verificationPage.querySelector('h1').innerText)
+      setTimeout(() => {
+        hiddenLoad.classList.remove("loading");
+        verificationPage.classList.remove('hidden')
+        // Add code to submit the final form data to a server or database here
+        verificationPage.querySelector('h1').innerText = 'Verification Pending'
+        message.classList.remove('hidden')
+        closeBtn.classList.remove('hidden')
+      }, 2000);
+    });
+
+    formEmail.addEventListener("submit", e => {
+      e.preventDefault();
+      formEmail.style.display = "none";
+      // loading.classList.remove("hidden");
+      verificationPage.classList.add('hidden');
+      hiddenLoad.classList.add("loading");
+      setTimeout(() => {
+        hiddenLoad.classList.remove("loading");
+        verificationPage.classList.remove('hidden')
+        formPhone.style.display = "block";
+      }, 2000);
+    });
+
+    formPhone.addEventListener("submit", e => {
+      e.preventDefault();
+      formPhone.style.display = "none";
+      // loading.classList.remove("hidden");
+      verificationPage.classList.add('hidden');
+      hiddenLoad.classList.add("loading");
+      setTimeout(() => {
+        hiddenLoad.classList.remove("loading");
+        verificationPage.classList.remove('hidden')
+        // Add code to submit the final form data to a server or database here
+        verificationPage.querySelector('h1').innerText = 'Verification Pending'
+        message.classList.remove('hidden')
+        closeBtn.classList.remove('hidden')
+      }, 2000);
+    });
+    document.querySelector('.close-btn').addEventListener('click', function() {
+      // document.querySelector('#success-popup').fadeOut(1000);
+      window.location.href = "{% url 'usa_verification' %}";
+      // location.reload();
+    });
+  </script>
+</html>

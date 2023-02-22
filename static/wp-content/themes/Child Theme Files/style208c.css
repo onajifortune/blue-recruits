@@ -1,0 +1,7 @@
+/*--------------------------------------------------------------------------------- Theme Name:   Blueprint Child Theme URI:    https://blueprintexpansion.com Description:  Blueprint Child Theme Author:       Brinnovate Author URI:   https://brinnovate.com Template:     Divi Version:      1.0.0 License:      GNU General Public License v2 or later License URI:  http://www.gnu.org/licenses/gpl-2.0.html------------------------------ ADDITIONAL CSS HERE ------------------------------*/#main-footer {
+	display: none!important;
+}
+
+#top-header { 
+	display: none !important; 
+}
